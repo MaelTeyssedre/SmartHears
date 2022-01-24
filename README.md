@@ -1,6 +1,6 @@
 # SmartHears (en)
 
-Projet de fin d'études de 7 étudiants {Epitech}. Projet commencé en 3 ème année qui dure jusqu'à la 5 ème année.
+Projet de fin d'études de 8 étudiants {Epitech}. Projet commencé en 3 ème année qui dure jusqu'à la 5 ème année.
 
 # Subject
 
@@ -10,7 +10,7 @@ You can find an explanatory document [here](https://www.youtube.com/watch?v=dQw4
 
 # SmartHears (fr)
 
-Projet de fin d'études de 7 étudiants {Epitech}. Projet commencé en 3 ème année qui dure jusqu'à la 5 ème année.
+Projet de fin d'études de 8 étudiants {Epitech}. Projet commencé en 3 ème année qui dure jusqu'à la 5 ème année.
 
 # Sujet
 
