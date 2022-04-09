@@ -27,8 +27,5 @@ class MainActivity :
             clicks++
             text.text = "$clicks"
         }
-
-
     }
-
 }
