@@ -18,14 +18,19 @@ jobs:
 
     - name: Build debug apk
       run:  chmod +x gradlew && ./gradlew clean assembleDebug
+    
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
 
     - name: Create release and upload apk
       uses: underwindfall/create-release-with-debugapk@v2.0.0
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: ${{ steps.extract_branch.outputs.branch }}
+        release_name: Release ${{ steps.extract_branch.outputs.branch }}
         asset_path: app/build/outputs/apk/debug/app-debug.apk
-        asset_name: Example.apk
+        asset_name: SmartHears.apk
         asset_content_type: application/zip

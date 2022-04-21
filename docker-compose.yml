@@ -1,0 +1,9 @@
+# docker compose for Dockerfile application mobile
+version: '3.3'
+
+services:
+  application:
+    container_name: SmartHears-APK
+    build:
+      context: .
+      dockerfile: Dockerfile
