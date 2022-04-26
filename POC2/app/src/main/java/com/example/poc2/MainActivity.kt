@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         connectedDevices?.forEach { device ->
             val deviceName = device.name
             val deviceHardwareAddress = device.address // MAC address
-            val deviceHardwareAddress = device.address // MAC address
+            val deviceType = device.type // Device Type
             Log.d ("Debugg", "Name -> ${device.name} and Mac address -> ${device.address} and type is ${device.type}")
             if (device.type == 3) { // TODO Voir pour le type... logiquement BluetoothProfile.HEARING_AID mais la comme ca j'en ai pas
                 Log.d("BT Battery", "Battery lvl of your bt device is ${btDevice.getBatteryLevel(device)}")
