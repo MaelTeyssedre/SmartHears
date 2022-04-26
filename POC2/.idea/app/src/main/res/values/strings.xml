@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">POC</string>
+    <string name="textview">TextView</string>
+</resources>
