@@ -1,3 +1,5 @@
+package com.example.poc
+/*
 package com.example.kotlinhorizontalscrollview
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,3 +40,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+*/
