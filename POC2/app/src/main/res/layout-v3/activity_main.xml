@@ -20,4 +20,26 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="15dp"/>
     </HorizontalScrollView>
+    <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:layout_height="690dp"
+            android:text="textview"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_alignParentEnd="true" android:layout_marginEnd="12dp" android:layout_marginTop="0dp"
+            android:layout_alignParentTop="true" android:layout_centerVertical="true"/>
+    <TextView
+            android:id="@+id/textView"
+            android:layout_width="177dp"
+            android:textColor="@color/black"
+            android:layout_height="578dp"
+            android:text="textview"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 </RelativeLayout>

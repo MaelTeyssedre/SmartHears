@@ -17,6 +17,7 @@ import com.example.poc2.SmartHearsBTDevice
 
 class MainActivity : AppCompatActivity() {
 
+    private var battery: Int = 100
     private var linearLayout: LinearLayout? = null
     private var btDevice: SmartHearsBTDevice = SmartHearsBTDevice()
     private val brands = arrayOf("Battery", "Camera", "Email", "Location", "Music", "Password",
@@ -53,10 +54,15 @@ class MainActivity : AppCompatActivity() {
             val deviceName = device.name
             val deviceHardwareAddress = device.address // MAC address
             val deviceType = device.type // Device Type
+            val textLeft = findViewById<TextView>(R.id.textView)
+            val textRight = findViewById<TextView>(R.id.textView4)
             Log.d ("Debugg", "Name -> ${device.name} and Mac address -> ${device.address} and type is ${device.type}")
             if (device.type == 3) { // TODO Voir pour le type... logiquement BluetoothProfile.HEARING_AID mais la comme ca j'en ai pas
                 Log.d("BT Battery", "Battery lvl of your bt device is ${btDevice.getBatteryLevel(device)}")
+                battery = btDevice.getBatteryLevel(device);
             }
+            textLeft.text = "$battery%"
+            textRight.text = "$battery%"
         }
     }
 }
