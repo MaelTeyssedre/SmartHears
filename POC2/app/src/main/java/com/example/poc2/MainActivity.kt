@@ -19,15 +19,14 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
+
 import androidx.core.app.ActivityCompat
 import com.example.poc2.R
 import com.example.poc2.SmartHearsBTDevice
 import 	android.media.AudioManager
 import android.content.Context
-=======
+
 import java.lang.System.exit
->>>>>>> f1695b0a8baf8cedda3a3ef5010ff450f69d46b4
 
 
 private const val REQUEST_ENABLE_BT = 1
@@ -58,13 +57,8 @@ class MainActivity : AppCompatActivity() {
     private val images = intArrayOf(
         R.drawable.battery, R.drawable.camera, R.drawable.email,
         R.drawable.location, R.drawable.music, R.drawable.password, R.drawable.phone,
-<<<<<<< HEAD
         R.drawable.storage, R.drawable.tablet, R.drawable.time)
     private lateinit var audioManager: AudioManager
-=======
-        R.drawable.storage, R.drawable.tablet, R.drawable.time
-    )
->>>>>>> f1695b0a8baf8cedda3a3ef5010ff450f69d46b4
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,14 +67,9 @@ class MainActivity : AppCompatActivity() {
         linearLayout = findViewById(R.id.linear1)
         val layoutInflater = LayoutInflater.from(this)
 
-<<<<<<< HEAD
         audioManager = this.getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
-        for (i in brands.indices)
-        {
-=======
         for (i in brands.indices) {
->>>>>>> f1695b0a8baf8cedda3a3ef5010ff450f69d46b4
             val view: View = layoutInflater.inflate(R.layout.test, linearLayout, false)
             val imageView = view.findViewById<ImageView>(R.id.iv)
             imageView.setImageResource(images[i])
@@ -106,7 +95,6 @@ class MainActivity : AppCompatActivity() {
             /*if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
             != PackageManager.PERMISSION_GRANTED ) {
             return
-<<<<<<< HEAD
         }
          */
         val connectedDevices = btManager.getConnectedDevices(BluetoothProfile.GATT)
@@ -124,26 +112,9 @@ class MainActivity : AppCompatActivity() {
                 //btDevice.setMediaVolume(audioManager, 5)
                 //btDevice.raiseMediaVolume(audioManager)
                 //btDevice.lowerMediaVolume(audioManager)
-=======
-        }*/
-            val connectedDevices = btManager.getConnectedDevices(BluetoothProfile.GATT)
-            connectedDevices?.forEach { device ->
-                val deviceName = device.name
-                val deviceHardwareAddress = device.address // MAC address
-                val deviceType = device.type // Device Type
-                val textLeft = findViewById<TextView>(R.id.textView)
-                val textRight = findViewById<TextView>(R.id.textView4)
-                Log.d(
-                    "Debugg",
-                    "Name -> ${device.name} and Mac address -> ${device.address} and type is ${device.type}"
-                )
-                if (device.type == 3) { // TODO Voir pour le type... logiquement BluetoothProfile.HEARING_AID mais la comme ca j'en ai pas
-                    Log.d("BT Battery", "Battery lvl of your bt device is ${btDevice.getBatteryLevel(device)}")
-                    battery = btDevice.getBatteryLevel(device);
-                }
+
                 textLeft.text = "$battery%"
                 textRight.text = "$battery%"
->>>>>>> f1695b0a8baf8cedda3a3ef5010ff450f69d46b4
             }
         }
     }
