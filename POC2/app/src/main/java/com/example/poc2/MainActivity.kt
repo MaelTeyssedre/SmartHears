@@ -78,21 +78,28 @@ class MainActivity : AppCompatActivity() {
             linearLayout?.addView(view)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            requestMultiplePermissions.launch(arrayOf(
-                Manifest.permission.BLUETOOTH_SCAN,
-                Manifest.permission.BLUETOOTH_CONNECT))
-        }
-        else{
+            requestMultiplePermissions.launch(
+                arrayOf(
+                    Manifest.permission.BLUETOOTH_SCAN,
+                    Manifest.permission.BLUETOOTH_CONNECT
+                )
+            )
+        } else {
             val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
             requestBluetooth.launch(enableBtIntent)
         }
+
+        /*
         var resultLauncher = registerForActivityResult(StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 // There are no request codes
                 val data: Intent? = result.data
             }
-            val btManager = getSystemService(BLUETOOTH_SERVICE) as BluetoothManager
-            /*if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
+        */
+
+
+        val btManager = getSystemService(BLUETOOTH_SERVICE) as BluetoothManager
+        /*if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
             != PackageManager.PERMISSION_GRANTED ) {
             return
         }
@@ -104,18 +111,31 @@ class MainActivity : AppCompatActivity() {
             val deviceType = device.type // Device Type
             val textLeft = findViewById<TextView>(R.id.textView)
             val textRight = findViewById<TextView>(R.id.textView4)
-            Log.d ("Debugg", "Name -> ${device.name} and Mac address -> ${device.address} and type is ${device.type}")
+            Log.d(
+                "Debugg",
+                "Name -> ${device.name} and Mac address -> ${device.address} and type is ${device.type}"
+            )
             if (device.type == 3) { // TODO Voir pour le type... logiquement BluetoothProfile.HEARING_AID mais la comme ca j'en ai pas
-                Log.d("BT Battery", "Battery lvl of your bt device is ${btDevice.getBatteryLevel(device)}")
-                Log.d("BT Audio", "Current audio level is ${btDevice.getCurrentMediaVolume(audioManager)}, max is ${btDevice.getMaxMediaVolume(audioManager)}")
+                Log.d(
+                    "BT Battery",
+                    "Battery lvl of your bt device is ${btDevice.getBatteryLevel(device)}"
+                )
+                Log.d(
+                    "BT Audio",
+                    "Current audio level is ${btDevice.getCurrentMediaVolume(audioManager)}, max is ${
+                        btDevice.getMaxMediaVolume(audioManager)
+                    }"
+                )
                 battery = btDevice.getBatteryLevel(device)
                 //btDevice.setMediaVolume(audioManager, 5)
                 //btDevice.raiseMediaVolume(audioManager)
                 //btDevice.lowerMediaVolume(audioManager)
 
-                textLeft.text = "$battery%"
-                textRight.text = "$battery%"
             }
+
+            textLeft.text = "$battery%"
+            textRight.text = "$battery%"
+        //}
         }
     }
 }
