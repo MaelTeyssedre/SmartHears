@@ -19,6 +19,13 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.app.AppCompatActivity
+
+import androidx.core.app.ActivityCompat
+import com.example.poc2.R
+import com.example.poc2.SmartHearsBTDevice
+import 	android.media.AudioManager
+import android.content.Context
+
 import java.lang.System.exit
 
 
@@ -50,8 +57,8 @@ class MainActivity : AppCompatActivity() {
     private val images = intArrayOf(
         R.drawable.battery, R.drawable.camera, R.drawable.email,
         R.drawable.location, R.drawable.music, R.drawable.password, R.drawable.phone,
-        R.drawable.storage, R.drawable.tablet, R.drawable.time
-    )
+        R.drawable.storage, R.drawable.tablet, R.drawable.time)
+    private lateinit var audioManager: AudioManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +66,8 @@ class MainActivity : AppCompatActivity() {
 
         linearLayout = findViewById(R.id.linear1)
         val layoutInflater = LayoutInflater.from(this)
+
+        audioManager = this.getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
         for (i in brands.indices) {
             val view: View = layoutInflater.inflate(R.layout.test, linearLayout, false)
@@ -86,22 +95,24 @@ class MainActivity : AppCompatActivity() {
             /*if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
             != PackageManager.PERMISSION_GRANTED ) {
             return
-        }*/
-            val connectedDevices = btManager.getConnectedDevices(BluetoothProfile.GATT)
-            connectedDevices?.forEach { device ->
-                val deviceName = device.name
-                val deviceHardwareAddress = device.address // MAC address
-                val deviceType = device.type // Device Type
-                val textLeft = findViewById<TextView>(R.id.textView)
-                val textRight = findViewById<TextView>(R.id.textView4)
-                Log.d(
-                    "Debugg",
-                    "Name -> ${device.name} and Mac address -> ${device.address} and type is ${device.type}"
-                )
-                if (device.type == 3) { // TODO Voir pour le type... logiquement BluetoothProfile.HEARING_AID mais la comme ca j'en ai pas
-                    Log.d("BT Battery", "Battery lvl of your bt device is ${btDevice.getBatteryLevel(device)}")
-                    battery = btDevice.getBatteryLevel(device);
-                }
+        }
+         */
+        val connectedDevices = btManager.getConnectedDevices(BluetoothProfile.GATT)
+        connectedDevices?.forEach { device ->
+            val deviceName = device.name
+            val deviceHardwareAddress = device.address // MAC address
+            val deviceType = device.type // Device Type
+            val textLeft = findViewById<TextView>(R.id.textView)
+            val textRight = findViewById<TextView>(R.id.textView4)
+            Log.d ("Debugg", "Name -> ${device.name} and Mac address -> ${device.address} and type is ${device.type}")
+            if (device.type == 3) { // TODO Voir pour le type... logiquement BluetoothProfile.HEARING_AID mais la comme ca j'en ai pas
+                Log.d("BT Battery", "Battery lvl of your bt device is ${btDevice.getBatteryLevel(device)}")
+                Log.d("BT Audio", "Current audio level is ${btDevice.getCurrentMediaVolume(audioManager)}, max is ${btDevice.getMaxMediaVolume(audioManager)}")
+                battery = btDevice.getBatteryLevel(device)
+                //btDevice.setMediaVolume(audioManager, 5)
+                //btDevice.raiseMediaVolume(audioManager)
+                //btDevice.lowerMediaVolume(audioManager)
+
                 textLeft.text = "$battery%"
                 textRight.text = "$battery%"
             }
