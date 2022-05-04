@@ -29,17 +29,18 @@ import android.content.Context
 import java.lang.System.exit
 
 
-private const val REQUEST_ENABLE_BT = 1
 class MainActivity : AppCompatActivity() {
 
     private var battery: Int = 100
+    private var audioLevel: Int = 100
     private var linearLayout: LinearLayout? = null
     private var btDevice: SmartHearsBTDevice = SmartHearsBTDevice()
+
     private var requestBluetooth = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
             //granted
         }else{
-            //deny
+            exit(0);
         }
     }
 
@@ -81,12 +82,22 @@ class MainActivity : AppCompatActivity() {
             requestMultiplePermissions.launch(
                 arrayOf(
                     Manifest.permission.BLUETOOTH_SCAN,
-                    Manifest.permission.BLUETOOTH_CONNECT
+                    Manifest.permission.BLUETOOTH_CONNECT,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION,
                 )
             )
         } else {
             val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
             requestBluetooth.launch(enableBtIntent)
+            requestMultiplePermissions.launch(
+                arrayOf(
+                    Manifest.permission.BLUETOOTH_SCAN,
+                    Manifest.permission.BLUETOOTH_CONNECT,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                )
+            )
         }
 
         /*
@@ -111,6 +122,8 @@ class MainActivity : AppCompatActivity() {
             val deviceType = device.type // Device Type
             val textLeft = findViewById<TextView>(R.id.textView)
             val textRight = findViewById<TextView>(R.id.textView4)
+            val audioLeft = findViewById<TextView>(R.id.left)
+            val audioRight = findViewById<TextView>(R.id.right)
             Log.d(
                 "Debugg",
                 "Name -> ${device.name} and Mac address -> ${device.address} and type is ${device.type}"
@@ -127,6 +140,7 @@ class MainActivity : AppCompatActivity() {
                     }"
                 )
                 battery = btDevice.getBatteryLevel(device)
+                audioLevel = btDevice.getMaxMediaVolume(audioManager)
                 //btDevice.setMediaVolume(audioManager, 5)
                 //btDevice.raiseMediaVolume(audioManager)
                 //btDevice.lowerMediaVolume(audioManager)
@@ -135,6 +149,8 @@ class MainActivity : AppCompatActivity() {
 
             textLeft.text = "$battery%"
             textRight.text = "$battery%"
+            audioLeft.text = "$audioLevel%"
+            audioRight.text = "$audioLevel%"
         //}
         }
     }
