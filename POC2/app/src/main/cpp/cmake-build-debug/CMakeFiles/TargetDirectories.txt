@@ -1,0 +1,3 @@
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cpp/cmake-build-debug/CMakeFiles/poc2.dir
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir

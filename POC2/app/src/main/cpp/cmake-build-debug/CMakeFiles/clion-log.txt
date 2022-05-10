@@ -1,0 +1,9 @@
+"C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.1/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\Enzo\Project\SmartHears\POC2\app\src\main\cpp -B C:\Users\Enzo\Project\SmartHears\POC2\app\src\main\cpp\cmake-build-debug
+-- Configuring done
+CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+Please set them or make sure they are set and tested correctly in the CMake files:
+log-lib
+    linked by target "poc2" in directory C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cpp
+
+-- Generating done
+CMake Generate step failed.  Build files cannot be regenerated correctly.
