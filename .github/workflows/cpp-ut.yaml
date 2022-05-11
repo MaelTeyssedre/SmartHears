@@ -17,14 +17,14 @@ jobs:
       - uses: actions/checkout@v2
       - name: install CMake
         run: sudo apt-get install cmake
-      
+
       - name: check Version
         run: cmake --version
-      
+
       - name: build CMake
         working-directory: ./POC2/app/src/main
         run: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug && make
-      
+
       - name: launch unit tests
         working-directory: ./POC2/app/src/main/Doctest_tests
-        run: cat Makefile && ./Doctest_tests_run
+        run: ./Doctest_tests_run
