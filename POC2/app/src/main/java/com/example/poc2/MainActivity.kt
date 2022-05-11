@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
                     }"
                 )
                 battery = btDevice.getBatteryLevel(device)
-                audioLevel = btDevice.getMaxMediaVolume(audioManager)
+                audioLevel = (btDevice.getCurrentMediaVolume(audioManager).toFloat() / btDevice.getMaxMediaVolume(audioManager).toFloat() * 100).toInt()
                 //btDevice.setMediaVolume(audioManager, 5)
                 //btDevice.raiseMediaVolume(audioManager)
                 //btDevice.lowerMediaVolume(audioManager)
