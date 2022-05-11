@@ -23,7 +23,7 @@ jobs:
       
       - name: build CMake
         working-directory: ./POC2/app/src/main
-        run: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug && make && ls
+        run: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug && make && cat Makefile && ls ./Doctest_tests
       
       # - name: launch unit tests
       #   working-directory: ./POC2/app/src/main/Doctest_tests
