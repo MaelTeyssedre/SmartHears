@@ -1,0 +1,5 @@
+# ninja log v5
+1	1257	6739600105478776	CppUT_lib/CMakeFiles/CppUT_lib.dir/Store.cpp.obj	6b5dc22bd477c33c
+1265	2050	6739600113649677	CppUT_lib/libCppUT_lib.a	10dc150eaf3114ef
+22	11515	6739600208099289	Doctest_tests/CMakeFiles/Doctest_tests_run.dir/Doctest_tests.cpp.obj	9478bee758f59eaf
+11519	12926	6739600222253074	Doctest_tests/Doctest_tests_run.exe	e922e63bc698bac8
