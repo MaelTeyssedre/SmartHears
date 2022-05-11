@@ -23,4 +23,4 @@ jobs:
       
       - name: build CMake
         working-directory: ./POC2/app/src/main
-        run: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug .. && make
+        run: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug && make
