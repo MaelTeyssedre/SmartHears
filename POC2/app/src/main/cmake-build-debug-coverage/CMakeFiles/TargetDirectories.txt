@@ -1,0 +1,8 @@
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cmake-build-debug-coverage/CppUT_lib/CMakeFiles/CppUT_lib.dir
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cmake-build-debug-coverage/CppUT_lib/CMakeFiles/edit_cache.dir
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cmake-build-debug-coverage/CppUT_lib/CMakeFiles/rebuild_cache.dir
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cmake-build-debug-coverage/Doctest_tests/CMakeFiles/Doctest_tests_run.dir
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cmake-build-debug-coverage/Doctest_tests/CMakeFiles/edit_cache.dir
+C:/Users/Enzo/Project/SmartHears/POC2/app/src/main/cmake-build-debug-coverage/Doctest_tests/CMakeFiles/rebuild_cache.dir
