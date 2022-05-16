@@ -8,9 +8,13 @@ import android.bluetooth.BluetoothProfile
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -25,14 +29,15 @@ import com.example.poc2.R
 import com.example.poc2.SmartHearsBTDevice
 import 	android.media.AudioManager
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 
 import java.lang.System.exit
 
 
 class MainActivity : AppCompatActivity() {
 
-    private var battery: Int = 100
-    private var audioLevel: Int = 100
     private var linearLayout: LinearLayout? = null
     private var btDevice: SmartHearsBTDevice = SmartHearsBTDevice()
 
@@ -61,6 +66,19 @@ class MainActivity : AppCompatActivity() {
         R.drawable.storage, R.drawable.tablet, R.drawable.time)
     private lateinit var audioManager: AudioManager
 
+
+    private val _batteryLevelRight: MutableLiveData<Int> = MutableLiveData<Int>(0)
+    val batteryLevelRight: LiveData<Int> = _batteryLevelRight
+
+    private val _batteryLevelLeft: MutableLiveData<Int> = MutableLiveData<Int>(0)
+    val batteryLevelLeft: LiveData<Int> = _batteryLevelLeft
+
+    private val _volumeLevelRight: MutableLiveData<Int> = MutableLiveData<Int>(0)
+    val volumeLevelRight: LiveData<Int> = _volumeLevelRight
+
+    private val _volumeLevelLeft: MutableLiveData<Int> = MutableLiveData<Int>(0)
+    val volumeLevelLeft: LiveData<Int> = _volumeLevelLeft
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -69,6 +87,8 @@ class MainActivity : AppCompatActivity() {
         val layoutInflater = LayoutInflater.from(this)
 
         audioManager = this.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        btDevice.bindAudioManager(audioManager)
+
 
         for (i in brands.indices) {
             val view: View = layoutInflater.inflate(R.layout.test, linearLayout, false)
@@ -131,26 +151,51 @@ class MainActivity : AppCompatActivity() {
             if (device.type == 3) { // TODO Voir pour le type... logiquement BluetoothProfile.HEARING_AID mais la comme ca j'en ai pas
                 Log.d(
                     "BT Battery",
-                    "Battery lvl of your bt device is ${btDevice.getBatteryLevel(device)}"
+                    "Battery lvl of your bt device is ${btDevice.getBatteryLevel()}"
                 )
                 Log.d(
                     "BT Audio",
-                    "Current audio level is ${btDevice.getCurrentMediaVolume(audioManager)}, max is ${
-                        btDevice.getMaxMediaVolume(audioManager)
+                    "Current audio level is ${btDevice.getCurrentMediaVolume()}, max is ${
+                        btDevice.getMaxMediaVolume()
                     }"
                 )
-                battery = btDevice.getBatteryLevel(device)
-                audioLevel = (btDevice.getCurrentMediaVolume(audioManager).toFloat() / btDevice.getMaxMediaVolume(audioManager).toFloat() * 100).toInt()
+                btDevice.bindBluetoothDevice(device)
                 //btDevice.setMediaVolume(audioManager, 5)
                 //btDevice.raiseMediaVolume(audioManager)
                 //btDevice.lowerMediaVolume(audioManager)
 
             }
 
-            textLeft.text = "$battery%"
-            textRight.text = "$battery%"
-            audioLeft.text = "$audioLevel%"
-            audioRight.text = "$audioLevel%"
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Battery and audio level auto MAJ
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            val batteryHandler = Handler(Looper.getMainLooper())
+
+            batteryHandler.post(object : Runnable {
+                override fun run() {
+                    _batteryLevelLeft.postValue(btDevice.getBatteryLevel())
+                    _batteryLevelRight.postValue(btDevice.getBatteryLevel())
+                    _volumeLevelLeft.postValue((btDevice.getCurrentMediaVolume().toFloat() / btDevice.getMaxMediaVolume().toFloat() * 100f).toInt())
+                    _volumeLevelRight.postValue((btDevice.getCurrentMediaVolume().toFloat() / btDevice.getMaxMediaVolume().toFloat() * 100f).toInt())
+                    batteryHandler.postDelayed(this, 1000)
+                }
+            })
+
+            batteryLevelRight.observe(this, Observer {
+                    newValue -> textRight.text = "$newValue%"
+            })
+            batteryLevelLeft.observe(this, Observer {
+                newValue -> textLeft.text = "$newValue%"
+            })
+            volumeLevelRight.observe(this, Observer {
+                    newValue -> audioRight.text = "$newValue%"
+            })
+            volumeLevelLeft.observe(this, Observer {
+                    newValue -> audioLeft.text = "$newValue%"
+            })
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
         //}
         }
     }
