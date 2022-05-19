@@ -23,6 +23,10 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 
 import androidx.core.app.ActivityCompat
 import com.example.poc2.R
@@ -32,16 +36,17 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import java.lang.System.exit
 
 
 class MainActivity : AppCompatActivity() {
 
-    private var linearLayout: LinearLayout? = null
     private var btDevice: SmartHearsBTDevice = SmartHearsBTDevice()
 
-    private var requestBluetooth = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private var requestBluetooth = registerForActivityResult(StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
             //granted
         }else{
@@ -83,21 +88,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        linearLayout = findViewById(R.id.linear1)
+
         val layoutInflater = LayoutInflater.from(this)
 
-        audioManager = this.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
+        val navController = findNavController(R.id.nav_host_fragment)
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_info, R.id.navigation_scroll
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+
+        audioManager = this.getSystemService(AUDIO_SERVICE) as AudioManager
         btDevice.bindAudioManager(audioManager)
 
-
-        for (i in brands.indices) {
-            val view: View = layoutInflater.inflate(R.layout.test, linearLayout, false)
-            val imageView = view.findViewById<ImageView>(R.id.iv)
-            imageView.setImageResource(images[i])
-            val tv = view.findViewById<TextView>(R.id.tv)
-            tv.text = brands[i]
-            linearLayout?.addView(view)
-        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             requestMultiplePermissions.launch(
                 arrayOf(

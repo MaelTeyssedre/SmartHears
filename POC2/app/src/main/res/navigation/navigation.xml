@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@+id/navigation_info">
+
+    <fragment
+        android:id="@+id/navigation_info"
+        android:name="com.example.poc2.ui.fragment_info"
+        android:label="Infos"
+        tools:layout="@layout/fragement_info" />
+
+    <fragment
+        android:id="@+id/navigation_scroll"
+        android:name="com.example.poc2.ui.fragment_scroll"
+        android:label="Scroll"
+        tools:layout="@layout/fragement_scroll" />
+</navigation>
