@@ -27,4 +27,18 @@ class Initialization {
       prefs.setBool('first_run', false);
     }
   }
+
+  static Future<void> initDynamicLinks() async {
+    FirebaseDynamicLinks.instance.onLink.listen(
+        (PendingDynamicLinkData dynamicLink) async {
+      final Uri deepLink = dynamicLink.link;
+      // Future.delayed(Duration(seconds: 1), () => launchDynamicLink(deepLink));
+    }, onError: (e) async {
+      print('onLinkError');
+      print(e.message);
+    });
+    final linkData = await FirebaseDynamicLinks.instance.getInitialLink();
+    // if (linkData?.link != null)
+      // Future.delayed(Duration(seconds: 1), () => launchDynamicLink(linkData!.link));
+  }
 }
