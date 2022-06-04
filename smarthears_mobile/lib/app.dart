@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:smarthears_mobile/login_screen.dart';
-import 'package:smarthears_mobile/modules/home_page.dart';
+import 'package:smarthears_mobile/modules/home/home_page.dart';
 import 'package:smarthears_mobile/constants.dart';
 
 GetIt getIt = GetIt.instance;
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
       providers: const [],
-      child: MultiRepositoryProvider(providers: const [], child: AppView()));
+      child: MultiRepositoryProvider(providers: const [], child: const AppView()));
 }
 
 class AppView extends StatefulWidget {

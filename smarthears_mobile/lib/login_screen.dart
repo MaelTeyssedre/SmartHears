@@ -9,7 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smarthears_mobile/helpers/apple_signin.dart';
 import 'package:smarthears_mobile/helpers/google_signin.dart';
 import 'package:smarthears_mobile/repositories/auth_repository.dart';
-import 'package:smarthears_mobile/modules/home_page.dart';
+import 'package:smarthears_mobile/modules/home/home_page.dart';
 
 final GetIt getIt = GetIt.instance;
 
