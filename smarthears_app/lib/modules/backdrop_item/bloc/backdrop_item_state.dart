@@ -10,15 +10,15 @@ class GoToSphere extends BackdropItemState {
   final String sphereId;
 }
 
-class ShowBackdropItem extends BackdropItemState {
-  ShowBackdropItem({required this.item, required this.type, required this.dynamicLink});
+class ShowBackdropItemState extends BackdropItemState {
+  ShowBackdropItemState({required this.item, required this.type, required this.dynamicLink});
   final dynamic item;
   final ItemType type;
   final String dynamicLink;
 }
 
-class PayBackdropItem extends BackdropItemState {
-  PayBackdropItem({this.item, required this.type, required this.dynamicLink});
+class PayBackdropItemState extends BackdropItemState {
+  PayBackdropItemState({this.item, required this.type, required this.dynamicLink});
   final dynamic item;
   final ItemType type;
   final String dynamicLink;
