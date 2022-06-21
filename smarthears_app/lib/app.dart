@@ -14,12 +14,14 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => MultiBlocProvider(providers: [
-        BlocProvider(create: (_) => HomePageCubit()),
-        BlocProvider(create: (_) => DashboardPageCubit()),
-      ], child: MultiRepositoryProvider(providers: [
-            RepositoryProvider.value(value: getIt<AuthenticationRepository>()),
-      ], child: const AppView()));
+  Widget build(BuildContext context) => MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (_) => HomePageCubit()),
+            BlocProvider(create: (_) => DashboardPageCubit())
+          ],
+          child: MultiRepositoryProvider(providers: [
+            RepositoryProvider.value(value: getIt<AuthenticationRepository>())
+          ], child: const AppView()));
 }
 
 class AppView extends StatefulWidget {
@@ -31,10 +33,12 @@ class AppView extends StatefulWidget {
 
 class _AppViewState extends State<AppView> {
   @override
-  Widget build(BuildContext context) => GetMaterialApp(title: 'SmartHears', home: const HomePage(), routes: {
-        DashboardScreen.routeName: (context) => DashboardScreen(),
-        HomePage.route: (context) => const HomePage()
-      },
-      
+  Widget build(BuildContext context) => GetMaterialApp(
+        title: 'SmartHears',
+        home: const HomePage(),
+        routes: {
+          DashboardScreen.routeName: (context) => DashboardScreen(),
+          HomePage.route: (context) => const HomePage()
+        },
       );
 }
