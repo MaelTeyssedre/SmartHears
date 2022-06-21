@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:smarthears_app/models/theme.dart';
 import 'package:smarthears_app/modules/backdrop_item/bloc/backdrop_item_bloc.dart';
 import 'package:smarthears_app/modules/home/home_page.dart';
 import 'package:smarthears_app/modules/dashboard/bloc/dashboard_page_cubit.dart';
@@ -37,6 +38,7 @@ class _SmartHearsViewState extends State<SmartHearsView> {
   @override
   Widget build(BuildContext context) => GetMaterialApp(
         title: 'SmartHears',
+        theme: theme,
         home: const HomePage(),
         routes: {
           DashboardScreen.routeName: (context) => const DashboardScreen(),
