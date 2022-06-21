@@ -6,22 +6,30 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
-Widget buildLoading(BuildContext context, {String? name, String? logoUrl}) => (name != null && logoUrl != null)
-    ? Stack(children: [
-        Container(
-            width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height, color: Colors.black),
-        Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Hero(tag: 'sphere', child: CachedNetworkImage(height: 300, imageUrl: logoUrl))]))
-      ])
-    : const Center(child: CircularProgressIndicator());
+Widget buildLoading(BuildContext context, {String? name, String? logoUrl}) =>
+    (name != null && logoUrl != null)
+        ? Stack(children: [
+            Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                color: Colors.black),
+            Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                  Hero(
+                      tag: 'sphere',
+                      child: CachedNetworkImage(height: 300, imageUrl: logoUrl))
+                ]))
+          ])
+        : const Center(child: CircularProgressIndicator());
 
 typedef GetDataCallback = void Function(BuildContext context);
 
 class DashboardWidget<C extends Cubit<S>, S> extends StatefulWidget {
-  const DashboardWidget({this.getData, this.name}) : super(key: const Key("dashboard"));
+  const DashboardWidget({this.getData, this.name})
+      : super(key: const Key("dashboard"));
 
   final GetDataCallback? getData;
   final String? name;
@@ -38,8 +46,10 @@ class _DashboardWidget<C extends Cubit<S>, S> extends State<DashboardWidget> {
   @override
   initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 500), () => setState(() => loaded = true));
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    Future.delayed(
+        const Duration(milliseconds: 500), () => setState(() => loaded = true));
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   }
 
   @override
@@ -72,8 +82,14 @@ class _DashboardWidget<C extends Cubit<S>, S> extends State<DashboardWidget> {
                     gradient: LinearGradient(
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
-                        stops: const [0.3, 1],
-                        colors: [Theme.of(context).colorScheme.secondary, Theme.of(context).backgroundColor])))),
+                        stops: const [
+                      0.3,
+                      1
+                    ],
+                        colors: [
+                      Theme.of(context).colorScheme.secondary,
+                      Theme.of(context).backgroundColor
+                    ])))),
         BlocBuilder<C, S>(
             bloc: BlocProvider.of<C>(context),
             builder: (context, state) {
@@ -107,7 +123,11 @@ class _DashboardWidget<C extends Cubit<S>, S> extends State<DashboardWidget> {
                                     // MediaQuery.of(context).orientation == Orientation.portrait
                                     //     ? CarouselWithIndicator(data: state.fanPage.headers)
                                     //     : Container(),
-                                    Container(),
+                                    Container(
+                                      height: 500,
+                                      width: 500,
+                                      color: Colors.orange,
+                                    ),
 
                                     const SizedBox(height: 15),
                                     // DashboardSection(state.categories, 'Categories', isEntity: false),

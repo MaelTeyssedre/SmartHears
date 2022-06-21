@@ -4,6 +4,7 @@ import 'package:smarthears_app/modules/backdrop_item/backdrop_item_listener.dart
 import 'package:smarthears_app/modules/home/bloc/home_page_cubit.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:smarthears_app/modules/dashboard/view/dashboard_screen.dart';
+import 'package:smarthears_app/modules/splash/splash.dart';
 
 class HomePage extends StatefulWidget {
   static const String route = '/home';
@@ -58,8 +59,7 @@ class _HomePageState extends State<HomePage> {
                                   bloc: BlocProvider.of<HomePageCubit>(context),
                                   builder: (context, state) {
                                     return const Icon(Icons.notifications,
-                                        size: 30,
-                                        color: Color(0xFFD3AF5F));
+                                        size: 30, color: Color(0xFFD3AF5F));
                                   }),
                               const Icon(Icons.account_circle,
                                   size: 30, color: Color(0xFFD3AF5F))
@@ -76,9 +76,6 @@ class _HomePageState extends State<HomePage> {
                         body: Padding(
                             padding: const EdgeInsets.only(bottom: 0),
                             child: getContent(_page)))
-                    : Scaffold(
-                        appBar: AppBar(),
-                        backgroundColor: Colors.purple,
-                        body: Container())));
+                    : Scaffold(body: SplashPage())));
   }
 }
