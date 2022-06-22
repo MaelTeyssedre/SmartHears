@@ -35,12 +35,11 @@ class SmartHearsView extends StatefulWidget {
 class _SmartHearsViewState extends State<SmartHearsView> {
   @override
   Widget build(BuildContext context) => GetMaterialApp(
-        title: 'SmartHears',
-        theme: theme,
-        home: const HomePage(),
-        routes: {
-          DashboardScreen.routeName: (context) => const DashboardScreen(),
-          HomePage.route: (context) => const HomePage()
-        },
-      );
+          title: 'SmartHears',
+          theme: theme,
+          home: const HomePage(),
+          routes: {
+            DashboardScreen.routeName: (context) => const DashboardScreen(),
+            HomePage.route: (context) => const HomePage()
+          });
 }
