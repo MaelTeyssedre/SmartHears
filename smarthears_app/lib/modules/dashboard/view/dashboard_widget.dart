@@ -51,19 +51,7 @@ class _DashboardWidget<C extends Cubit<S>, S> extends State<DashboardWidget> {
                 duration: const Duration(milliseconds: 500),
                 padding: const EdgeInsets.all(5.0),
                 height: loaded ? 249 : 0,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        stops: const [
-                      0.3,
-                      1
-                    ],
-                        colors: [
-                      Theme.of(context).colorScheme.secondary,
-                      Theme.of(context).backgroundColor
-                    ])))),
+                width: MediaQuery.of(context).size.width)),
         BlocBuilder<C, S>(
             bloc: BlocProvider.of<C>(context),
             builder: (context, state) {
