@@ -1,0 +1,103 @@
+<div class="container">
+    <button mat-raised-button color="primary" (click)="goBack()">
+        <mat-icon class="icon">arrow_back</mat-icon>
+        <span>Retour</span>
+    </button>
+    <div class="top-page">
+        <div class="title">
+            <span *ngIf="edit">Editer mon pack de voix</span>
+            <span *ngIf="!edit">Créer mon pack de voix</span>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Status du pack</mat-label>
+                <mat-select disableRipple>
+                  <mat-option *ngFor="let status of statusArray" [value]="status">{{status}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+    </div>
+    <mat-divider class="divider"></mat-divider>
+    <div class="pack">
+        <div class="block-left">
+            <div class="subtitle">
+                <div class="text">
+                    <mat-icon>mic_none</mat-icon>
+                    <span>Liste des voix du pack</span>
+                    <mat-divider class="divider"></mat-divider>
+                </div>
+                <div class="button">
+                    <button mat-raised-button color="primary" (click)="addVoice()">
+                        <mat-icon class="icon">add</mat-icon>
+                        <span>Ajouter une voix</span>
+                    </button>
+                </div>
+            </div>
+            <mat-form-field *ngIf="soundPack" appearance="standard">
+                <mat-label>Rechercher</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Martin Dupont / Active" #input>
+            </mat-form-field>
+            <div class="voices">
+                <table *ngIf="soundPack" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Nom </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="job">
+                        <th mat-header-cell *matHeaderCellDef> Travail </th>
+                        <td mat-cell *matCellDef="let element"> {{element.job}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Statut </th>
+                        <!-- green or red status if active or not -->
+                        <td mat-cell *matCellDef="let element">
+                            <div *ngIf="element.status === 'active'" class="status-active">
+                                <mat-icon>check</mat-icon>
+                                {{element.status}}
+                            </div>
+                            <div *ngIf="element.status !== 'active'" class="status-inactive">
+                                <mat-icon>close</mat-icon>
+                                {{element.status}}
+                            </div>
+                        </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> Actions </th>
+                        <!-- add delete action -->
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button (click)="deleteVoice(element)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <div class="subtitle">
+                <div class="text">
+                    <mat-icon>description</mat-icon>
+                    <span>Description</span>
+                    <mat-divider class="divider"></mat-divider>
+                </div>
+            </div>
+            <textarea class="description-input" matInput [(ngModel)]="soundPack!.description" placeholder="Ex. Le pack de voix de Martin Dupont"></textarea>
+        </div>
+        <div class="block-right">
+            <img *ngIf="soundPack" class="image" [src]="soundPack.image">
+            <img *ngIf="soundPack" class="qr-code" [src]="'assets/QR_code.png'">
+        </div>
+    </div>
+</div>
+
+<!-- Save button -->
+<div class="bottom-page">
+    <button mat-raised-button color="primary" (click)="save()">
+        <mat-icon class="icon">save</mat-icon>
+        <span>Enregistrer</span>
+    </button>
+</div>

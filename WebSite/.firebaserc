@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "smarthears-web": {
+      "hosting": {
+        "WebSite": [
+          "smarthears-web"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "smarthears-web"
+  }
+}

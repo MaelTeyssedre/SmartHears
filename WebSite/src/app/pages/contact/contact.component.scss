@@ -1,0 +1,9 @@
+.container {
+    width: calc(100% - 20px);
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

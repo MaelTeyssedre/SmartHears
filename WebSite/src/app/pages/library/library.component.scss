@@ -1,0 +1,121 @@
+.input-container {
+    width: calc(100% - 20px);
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    .input {
+        width: calc(max(60%, 500px));
+    }
+}
+
+.pack-container {
+    width: calc(100% - 20px);
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    overflow-wrap: break-word;
+
+    .sound-pack {
+        width: 128px;
+        height: 128px;
+        margin: 5px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+            transition: all 0.2s ease-out;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+            .edit {
+                display: block;
+            }
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 5px;
+        }
+
+        .title {
+            font-size: 12px;
+            font-weight: bold;
+            margin: 5px;
+            color: #fff;
+            width: fit-content;
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .edit {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #cccccc;
+            background-color: rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+            border-radius: 100%;
+            padding: 3px;
+        }
+    }
+
+    .add-pack {
+        width: 128px;
+        height: 128px;
+        margin: 5px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        cursor: pointer;
+        position: relative;
+        background: linear-gradient(to bottom right, #1ad, #d18);
+
+        &:hover {
+            transition: all 0.2s ease-out;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+            transform: scale(1.05);
+            z-index: 5;
+        }
+
+        .cross-1 {
+            // create a black horizontal line for the cross in the middle
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 55%;
+            height: 8px;
+            background-color: #d8d8d8;
+            border-radius: 10px;
+        }
+
+        .cross-2 {
+            // create a black vertical line for the cross in the middle
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 55%;
+            background-color: #d8d8d8;
+            border-radius: 10px;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<div class="input-container">
+    <mat-form-field class="input">
+        <mat-label>Cherchez un pack de voix</mat-label>
+        <input (keyup)="onChangeEvent($event)" matInput placeholder="Ex: 'Sound Pack'" [formControl]="searchedPack"
+            #input>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</div>
+<div class="pack-container">
+    <div [routerLink]="['/library/create']" matTooltip="Créer un nouveau pack" matTooltipPosition="above" class="add-pack">
+        <div class="cross-1"></div>
+        <div class="cross-2"></div>
+    </div>
+    <div *ngFor="let pack of showedSoundPacks" [matTooltip]="pack.description" matTooltipPosition="above"
+        [routerLink]="['/library/edit']"
+        [queryParams]="{id: pack.id}"
+        (onClick)="cacheEditedSoundPack(pack)"
+        class="sound-pack"
+        [ngStyle]="{
+            background: 'linear-gradient(to bottom, ' + pack.color + ', ' + pack.color2 + ')'
+        }"
+    >
+        <img class="image" [src]="pack.image">
+        <span class="title">{{pack.title}}</span>
+        <mat-icon class="edit">edit</mat-icon>
+    </div>
+</div>
