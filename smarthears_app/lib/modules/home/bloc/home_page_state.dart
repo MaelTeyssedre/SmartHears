@@ -19,11 +19,4 @@ class HomePageLoadedState extends HomePageState {
 class HomePageErrorState extends HomePageState {
   final String message;
   const HomePageErrorState(this.message);
-
-  @override
-  bool operator ==(Object other) =>
-      (identical(this, other)) ? true : other is HomePageErrorState && other.message == message;
-
-  @override
-  int get hashCode => message.hashCode;
 }

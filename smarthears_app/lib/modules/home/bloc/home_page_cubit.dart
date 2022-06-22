@@ -6,7 +6,7 @@ class HomePageCubit extends Cubit<HomePageState> {
     try {
       emit(const HomePageLoadedState());
     } on Exception {
-      emit(const HomePageErrorState("Couldn't fetch the page. Is the device online?"));
+      emit(const HomePageErrorState(""));
     }
   }
 }

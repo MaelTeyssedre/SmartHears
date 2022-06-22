@@ -19,11 +19,4 @@ class DashboardPageLoadedState extends DashboardPageState {
 class DashboardPageErrorState extends DashboardPageState {
   final String message;
   const DashboardPageErrorState(this.message);
-
-  @override
-  bool operator ==(Object other) =>
-      (identical(this, other)) ? true : other is DashboardPageErrorState && other.message == message;
-
-  @override
-  int get hashCode => message.hashCode;
 }

@@ -3,9 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthears_app/modules/dashboard/bloc/dashboard_page_cubit.dart';
 import 'dashboard_widget.dart';
 
-Widget buildLoading() {
-  return const Center(child: CircularProgressIndicator());
-}
+Widget buildLoading() => const Center(child: CircularProgressIndicator());
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
