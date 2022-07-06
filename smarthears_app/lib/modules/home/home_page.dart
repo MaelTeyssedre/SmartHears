@@ -38,15 +38,31 @@ class _HomePageState extends State<HomePage> {
         bottomNavigationBar: CurvedNavigationBar(
             height: 70,
             key: _bottomNavigationKey,
-            backgroundColor: const Color(0xFFD3AF5F),
+            backgroundColor: theme.colorScheme.background,
             color: theme.primaryColor,
-            buttonBackgroundColor: theme.splashColor,
+            buttonBackgroundColor: theme.colorScheme.secondary,
             index: _page,
-            items: const <Icon>[
-              Icon(Icons.home, size: 30, color: Color(0xFFD3AF5F)),
-              Icon(Icons.account_circle, size: 30, color: Color(0xFFD3AF5F)),
-              Icon(Icons.search, size: 30, color: Color(0xFFD3AF5F)),
-              Icon(Icons.settings, size: 30, color: Color(0xFFD3AF5F))
+            items: [
+              ShaderMask(
+                  child: const Icon(Icons.home, size: 30),
+                  shaderCallback: (bounds) =>
+                      const RadialGradient(colors: [Colors.blue, Colors.red], tileMode: TileMode.mirror, radius: 1, center: Alignment.topLeft)
+                          .createShader(bounds)),
+              ShaderMask(
+                  child: const Icon(Icons.account_circle, size: 30),
+                  shaderCallback: (bounds) =>
+                      const RadialGradient(colors: [Colors.blue, Colors.red], tileMode: TileMode.mirror, radius: 1, center: Alignment.topLeft)
+                          .createShader(bounds)),
+              ShaderMask(
+                  child: const Icon(Icons.search, size: 30),
+                  shaderCallback: (bounds) =>
+                      const RadialGradient(colors: [Colors.blue, Colors.red], tileMode: TileMode.mirror, radius: 1, center: Alignment.topLeft)
+                          .createShader(bounds)),
+              ShaderMask(
+                  child: const Icon(Icons.chat_bubble, size: 30),
+                  shaderCallback: (bounds) =>
+                      const RadialGradient(colors: [Colors.blue, Colors.red], tileMode: TileMode.mirror, radius: 1, center: Alignment.topLeft)
+                          .createShader(bounds))
             ],
             animationDuration: const Duration(milliseconds: 300),
             onTap: (index) => setState(() => _page = index)),

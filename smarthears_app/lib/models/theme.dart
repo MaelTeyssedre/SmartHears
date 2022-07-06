@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const secondaryColor = Color(0xFFD3AF5F);
+const secondaryColor = Colors.white;
 const secondaryVariantColor = Color(0xFFc29017);
 const onsecondaryColor = Color(0xFF2a2a2a);
 const primaryColor = Color(0xFF2a2a2a);
 const primaryVariantColor = Color(0xff6C6C6C);
 const onPrimaryColor = Color(0xffdedede);
-const backgroundColor = Color(0xff111111);
+const backgroundColor = Color.fromRGBO(211, 211, 211, 1);
 const onBackgroundColor = Color(0xffdedede);
 const surfaceColor = Color(0xff242424);
 const onSurfacesColor = Color(0xffdedede);
@@ -63,10 +63,10 @@ final ThemeData theme = ThemeData(
         onError: onErrorColor,
         brightness: Brightness.dark),
     brightness: Brightness.dark,
-    primaryColor: const Color.fromRGBO(30, 30, 30, 1),
+    primaryColor: Colors.white,
     primarySwatch: MaterialColor(0xFF424242, swatch),
     backgroundColor: Colors.black,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: const Color.fromRGBO(211, 211, 211, 1),
     splashColor: const Color.fromRGBO(30, 30, 30, 1),
     shadowColor: const Color.fromRGBO(30, 30, 30, 1),
     textSelectionTheme: TextSelectionThemeData(cursorColor: MaterialColor(0xFFD3AF5F, color)),
