@@ -6,9 +6,7 @@ import 'package:smarthears_app/repositories/authentication_repository.dart';
 GetIt getIt = GetIt.instance;
 
 void main() async {
-  getIt.registerSingleton<AuthenticationRepository>(
-      AuthenticationRepository('URL'),
-      signalsReady: true);
+  getIt.registerSingleton<AuthenticationRepository>(AuthenticationRepository('URL'), signalsReady: true);
   // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const SmartHears());
 }

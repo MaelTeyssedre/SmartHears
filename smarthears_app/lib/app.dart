@@ -16,13 +16,8 @@ class SmartHears extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
-          providers: [
-            BlocProvider(create: (_) => HomePageCubit()),
-            BlocProvider(create: (_) => DashboardPageCubit())
-          ],
-          child: MultiRepositoryProvider(providers: [
-            RepositoryProvider.value(value: getIt<AuthenticationRepository>())
-          ], child: const SmartHearsView()));
+      providers: [BlocProvider(create: (_) => HomePageCubit()), BlocProvider(create: (_) => DashboardPageCubit())],
+      child: MultiRepositoryProvider(providers: [RepositoryProvider.value(value: getIt<AuthenticationRepository>())], child: const SmartHearsView()));
 }
 
 class SmartHearsView extends StatefulWidget {
@@ -35,11 +30,8 @@ class SmartHearsView extends StatefulWidget {
 class _SmartHearsViewState extends State<SmartHearsView> {
   @override
   Widget build(BuildContext context) => GetMaterialApp(
-          title: 'SmartHears',
-          theme: theme,
-          home: const HomePage(),
-          routes: {
-            DashboardScreen.routeName: (context) => const DashboardScreen(),
-            HomePage.route: (context) => const HomePage()
-          });
+      title: 'SmartHears',
+      theme: theme,
+      home: const HomePage(),
+      routes: {DashboardScreen.routeName: (context) => const DashboardScreen(), HomePage.route: (context) => const HomePage()});
 }

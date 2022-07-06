@@ -50,8 +50,6 @@ class _HomePageState extends State<HomePage> {
             ],
             animationDuration: const Duration(milliseconds: 300),
             onTap: (index) => setState(() => _page = index)),
-        body: Padding(
-            padding: const EdgeInsets.only(bottom: 0),
-            child: getContent(_page)));
+        body: Padding(padding: const EdgeInsets.only(bottom: 0), child: getContent(_page)));
   }
 }

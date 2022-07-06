@@ -11,5 +11,4 @@ class DashboardPageCubit extends Cubit<DashboardPageState> {
       emit(const DashboardPageErrorState("dashboard-section.error"));
     }
   }
-
 }

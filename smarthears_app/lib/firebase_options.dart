@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
-import 'package:flutter/foundation.dart'
-    show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -14,29 +13,23 @@ import 'package:flutter/foundation.dart'
 /// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
-    if (kIsWeb) {
-      return web;
-    }
+    if (kIsWeb) return web;
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-            'DefaultFirebaseOptions have not been configured for macos - '
+        throw UnsupportedError('DefaultFirebaseOptions have not been configured for macos - '
             'you can reconfigure this by running the FlutterFire CLI again.');
       case TargetPlatform.windows:
-        throw UnsupportedError(
-            'DefaultFirebaseOptions have not been configured for windows - '
+        throw UnsupportedError('DefaultFirebaseOptions have not been configured for windows - '
             'you can reconfigure this by running the FlutterFire CLI again.');
       case TargetPlatform.linux:
-        throw UnsupportedError(
-            'DefaultFirebaseOptions have not been configured for linux - '
+        throw UnsupportedError('DefaultFirebaseOptions have not been configured for linux - '
             'you can reconfigure this by running the FlutterFire CLI again.');
       default:
-        throw UnsupportedError(
-            'DefaultFirebaseOptions are not supported for this platform.');
+        throw UnsupportedError('DefaultFirebaseOptions are not supported for this platform.');
     }
   }
 
@@ -62,7 +55,6 @@ class DefaultFirebaseOptions {
       messagingSenderId: '611583846064',
       projectId: 'smarthears-b46bb',
       storageBucket: 'smarthears-b46bb.appspot.com',
-      iosClientId:
-          '611583846064-v1qo3654s3bn2qpj6lo0nft7tqnb35j2.apps.googleusercontent.com',
+      iosClientId: '611583846064-v1qo3654s3bn2qpj6lo0nft7tqnb35j2.apps.googleusercontent.com',
       iosBundleId: 'com.example.smarthearsApp');
 }
