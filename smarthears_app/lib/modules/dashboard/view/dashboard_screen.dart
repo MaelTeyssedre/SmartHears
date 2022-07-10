@@ -11,9 +11,10 @@ class DashboardScreen extends StatelessWidget {
 
   static Route route() => MaterialPageRoute<void>(builder: (_) => const DashboardScreen());
 
-  void getDashboard(BuildContext context) => BlocProvider.of<DashboardPageCubit>(context);
+  void getDashboard(BuildContext context) => BlocProvider.of<DashboardPageCubit>(context).getDashboard();
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-      create: (context) => BlocProvider.of<DashboardPageCubit>(context), child: const DashboardWidget<DashboardPageCubit, DashboardPageState>());
+      create: (context) => BlocProvider.of<DashboardPageCubit>(context),
+      child: DashboardWidget<DashboardPageCubit, DashboardPageState>(getData: getDashboard));
 }
