@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:smarthears_app/models/theme.dart';
 import 'package:smarthears_app/modules/dashboard/view/dashboard_screen.dart';
+import 'package:smarthears_app/modules/splash/splash.dart';
 
 class HomePage extends StatefulWidget {
   static const String route = '/home';
@@ -19,12 +21,12 @@ class _HomePageState extends State<HomePage> {
     switch (index) {
       case 0:
         return const DashboardScreen();
-      // case 1:
-      //   return AccountPage();
-      // case 2:
-      //   return SearchPage();
-      // case 3:
-      //   return SettingsPage();
+      case 1:
+        return const SplashPage();
+      case 2:
+        return const SplashPage();
+      case 3:
+        return const SplashPage();
       default:
         return const DashboardScreen();
     }
@@ -43,26 +45,10 @@ class _HomePageState extends State<HomePage> {
             buttonBackgroundColor: theme.colorScheme.secondary,
             index: _page,
             items: [
-              ShaderMask(
-                  child: const Icon(Icons.home, size: 30),
-                  shaderCallback: (bounds) =>
-                      const RadialGradient(colors: [Colors.blue, Colors.red], tileMode: TileMode.mirror, radius: 1, center: Alignment.topLeft)
-                          .createShader(bounds)),
-              ShaderMask(
-                  child: const Icon(Icons.account_circle, size: 30),
-                  shaderCallback: (bounds) =>
-                      const RadialGradient(colors: [Colors.blue, Colors.red], tileMode: TileMode.mirror, radius: 1, center: Alignment.topLeft)
-                          .createShader(bounds)),
-              ShaderMask(
-                  child: const Icon(Icons.search, size: 30),
-                  shaderCallback: (bounds) =>
-                      const RadialGradient(colors: [Colors.blue, Colors.red], tileMode: TileMode.mirror, radius: 1, center: Alignment.topLeft)
-                          .createShader(bounds)),
-              ShaderMask(
-                  child: const Icon(Icons.chat_bubble, size: 30),
-                  shaderCallback: (bounds) =>
-                      const RadialGradient(colors: [Colors.blue, Colors.red], tileMode: TileMode.mirror, radius: 1, center: Alignment.topLeft)
-                          .createShader(bounds))
+              ShaderMask(shaderCallback: shaderCallback, child: const Icon(Icons.home, size: 30)),
+              ShaderMask(shaderCallback: shaderCallback, child: const Icon(Icons.account_circle, size: 30)),
+              ShaderMask(shaderCallback: shaderCallback, child: const Icon(Icons.search, size: 30)),
+              ShaderMask(shaderCallback: shaderCallback, child: const Icon(Icons.chat_bubble, size: 30))
             ],
             animationDuration: const Duration(milliseconds: 300),
             onTap: (index) => setState(() => _page = index)),
