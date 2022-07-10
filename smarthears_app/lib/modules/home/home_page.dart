@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:smarthears_app/models/theme.dart';
 import 'package:smarthears_app/modules/dashboard/view/dashboard_screen.dart';
+import 'package:smarthears_app/modules/splash/splash.dart';
 
 class HomePage extends StatefulWidget {
   static const String route = '/home';
@@ -19,12 +21,12 @@ class _HomePageState extends State<HomePage> {
     switch (index) {
       case 0:
         return const DashboardScreen();
-      // case 1:
-      //   return AccountPage();
-      // case 2:
-      //   return SearchPage();
-      // case 3:
-      //   return SettingsPage();
+      case 1:
+        return const SplashPage();
+      case 2:
+        return const SplashPage();
+      case 3:
+        return const SplashPage();
       default:
         return const DashboardScreen();
     }
@@ -38,20 +40,18 @@ class _HomePageState extends State<HomePage> {
         bottomNavigationBar: CurvedNavigationBar(
             height: 70,
             key: _bottomNavigationKey,
-            backgroundColor: const Color(0xFFD3AF5F),
+            backgroundColor: theme.colorScheme.background,
             color: theme.primaryColor,
-            buttonBackgroundColor: theme.splashColor,
+            buttonBackgroundColor: theme.colorScheme.secondary,
             index: _page,
-            items: const <Icon>[
-              Icon(Icons.home, size: 30, color: Color(0xFFD3AF5F)),
-              Icon(Icons.account_circle, size: 30, color: Color(0xFFD3AF5F)),
-              Icon(Icons.search, size: 30, color: Color(0xFFD3AF5F)),
-              Icon(Icons.settings, size: 30, color: Color(0xFFD3AF5F))
+            items: [
+              ShaderMask(shaderCallback: shaderCallback, child: const Icon(Icons.home, size: 30)),
+              ShaderMask(shaderCallback: shaderCallback, child: const Icon(Icons.account_circle, size: 30)),
+              ShaderMask(shaderCallback: shaderCallback, child: const Icon(Icons.search, size: 30)),
+              ShaderMask(shaderCallback: shaderCallback, child: const Icon(Icons.chat_bubble, size: 30))
             ],
             animationDuration: const Duration(milliseconds: 300),
             onTap: (index) => setState(() => _page = index)),
-        body: Padding(
-            padding: const EdgeInsets.only(bottom: 0),
-            child: getContent(_page)));
+        body: Padding(padding: const EdgeInsets.only(bottom: 0), child: getContent(_page)));
   }
 }

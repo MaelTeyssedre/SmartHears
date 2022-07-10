@@ -13,7 +13,11 @@ class DashboardPageLoadingState extends DashboardPageState {
 }
 
 class DashboardPageLoadedState extends DashboardPageState {
-  const DashboardPageLoadedState();
+  final List<Sound> sounds;
+  final List<SoundPack> soundPacks;
+  final List<Voice> voices;
+  final List<VoicePack> voicePacks;
+  const DashboardPageLoadedState({required this.soundPacks, required this.sounds, required this.voicePacks, required this.voices});
 }
 
 class DashboardPageErrorState extends DashboardPageState {

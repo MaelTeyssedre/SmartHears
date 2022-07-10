@@ -9,14 +9,12 @@ class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
   static const String routeName = "/dashboard";
 
-  static Route route() =>
-      MaterialPageRoute<void>(builder: (_) => const DashboardScreen());
+  static Route route() => MaterialPageRoute<void>(builder: (_) => const DashboardScreen());
 
-  void getDashboard(BuildContext context) =>
-      BlocProvider.of<DashboardPageCubit>(context);
+  void getDashboard(BuildContext context) => BlocProvider.of<DashboardPageCubit>(context).getDashboard();
 
   @override
   Widget build(BuildContext context) => BlocProvider(
       create: (context) => BlocProvider.of<DashboardPageCubit>(context),
-      child: const DashboardWidget<DashboardPageCubit, DashboardPageState>());
+      child: DashboardWidget<DashboardPageCubit, DashboardPageState>(getData: getDashboard));
 }
