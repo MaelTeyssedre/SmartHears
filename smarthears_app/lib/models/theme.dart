@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+typedef ShaderCallback = Shader Function(Rect);
+
+const Map<String, Icon> map = {
+  "home": Icon(Icons.home, size: 30),
+  "account": Icon(Icons.account_circle, size: 30),
+  "search": Icon(Icons.search, size: 30),
+  "chat": Icon(Icons.chat_bubble, size: 30)
+};
+
+ShaderCallback shaderCallback = (bounds) =>
+    const RadialGradient(colors: [Colors.blue, Colors.red], tileMode: TileMode.mirror, radius: 1, center: Alignment.topLeft).createShader(bounds);
+
 const secondaryColor = Colors.white;
 const secondaryVariantColor = Color(0xFFc29017);
 const onsecondaryColor = Color(0xFF2a2a2a);
@@ -15,32 +27,6 @@ const textColor = Color(0xffdedede);
 const errorColor = Color(0xfff44336);
 const onErrorColor = Color(0xFF2a2a2a);
 const boxShadowColor = Color.fromRGBO(114, 114, 109, 0.8);
-
-Map<int, Color> color = {
-  50: const Color.fromRGBO(211, 175, 95, 1),
-  100: const Color.fromRGBO(211, 175, 95, .9),
-  200: const Color.fromRGBO(211, 175, 95, .8),
-  300: const Color.fromRGBO(211, 175, 95, .7),
-  400: const Color.fromRGBO(211, 175, 95, .6),
-  500: const Color.fromRGBO(211, 175, 95, .5),
-  600: const Color.fromRGBO(211, 175, 95, .4),
-  700: const Color.fromRGBO(211, 175, 95, .3),
-  800: const Color.fromRGBO(211, 175, 95, 0.2),
-  900: const Color.fromRGBO(211, 175, 95, .1)
-};
-
-Map<int, Color> swatch = {
-  50: const Color.fromRGBO(42, 42, 42, .1),
-  100: const Color.fromRGBO(42, 42, 42, .2),
-  200: const Color.fromRGBO(42, 42, 42, .3),
-  300: const Color.fromRGBO(42, 42, 42, 0.4),
-  400: const Color.fromRGBO(42, 42, 42, .5),
-  500: const Color.fromRGBO(42, 42, 42, .6),
-  600: const Color.fromRGBO(42, 42, 42, .7),
-  700: const Color.fromRGBO(42, 42, 42, .8),
-  800: const Color.fromRGBO(42, 42, 42, .9),
-  900: const Color.fromRGBO(42, 42, 42, 1)
-};
 
 final ThemeData theme = ThemeData(
     inputDecorationTheme: const InputDecorationTheme(
@@ -64,22 +50,20 @@ final ThemeData theme = ThemeData(
         brightness: Brightness.dark),
     brightness: Brightness.dark,
     primaryColor: Colors.white,
-    primarySwatch: MaterialColor(0xFF424242, swatch),
     backgroundColor: Colors.black,
     scaffoldBackgroundColor: const Color.fromRGBO(211, 211, 211, 1),
     splashColor: const Color.fromRGBO(30, 30, 30, 1),
     shadowColor: const Color.fromRGBO(30, 30, 30, 1),
-    textSelectionTheme: TextSelectionThemeData(cursorColor: MaterialColor(0xFFD3AF5F, color)),
     fontFamily: 'Roboto',
     textTheme: TextTheme(
-        headline1: const TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-        headline6: GoogleFonts.robotoCondensed(textStyle: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white70)),
-        bodyText1: GoogleFonts.robotoCondensed(textStyle: const TextStyle(fontSize: 15.0)),
-        headline3: TextStyle(fontFamily: 'OpenSans', fontSize: 45.0, color: MaterialColor(0xFFD3AF5F, color)),
+        headline1: const TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
+        headline6: GoogleFonts.robotoCondensed(textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+        bodyText1: GoogleFonts.robotoCondensed(textStyle: const TextStyle(fontSize: 15)),
         button: const TextStyle(fontFamily: 'OpenSans'),
         subtitle1: GoogleFonts.robotoCondensed(),
         bodyText2: GoogleFonts.robotoCondensed(),
-        headline5: GoogleFonts.robotoCondensed(textStyle: const TextStyle(fontFamily: '', fontSize: 20.0, color: Colors.white70)),
-        headline4: GoogleFonts.robotoCondensed(textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24))),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(primary: const Color.fromRGBO(211, 175, 95, 1), elevation: 8, minimumSize: const Size(250, 60))));
+        headline5:
+            GoogleFonts.robotoCondensed(textStyle: const TextStyle(fontFamily: '', fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+        headline4: GoogleFonts.robotoCondensed(textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24))));
+
+const String urlDrapeauBreton = 'https://m.media-amazon.com/images/I/41Llb8l-kXL._AC_SX425_.jpg';
