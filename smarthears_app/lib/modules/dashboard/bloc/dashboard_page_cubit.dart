@@ -45,7 +45,52 @@ class DashboardPageCubit extends Cubit<DashboardPageState> {
   DashboardPageCubit() : super(const DashboardPageInitialState()) {
     try {
       emit(const DashboardPageLoadingState());
-      emit(const DashboardPageLoadedState(soundPacks: [], sounds: [], voicePacks: [], voices: []));
+      emit(DashboardPageLoadedState(soundPacks: [
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton)
+      ], sounds: [
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton)
+      ], voicePacks: [
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton)
+      ], voices: [
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton)
+      ]));
     } on Exception {
       emit(const DashboardPageErrorState("Error"));
     }
@@ -54,7 +99,36 @@ class DashboardPageCubit extends Cubit<DashboardPageState> {
   Future<void> getDashboard() async {
     try {
       emit(const DashboardPageLoadingState());
-      emit(const DashboardPageLoadedState(soundPacks: [], sounds: [], voicePacks: [], voices: []));
+      emit(DashboardPageLoadedState(soundPacks: [
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+        SoundPack(title: 'test', logoUrl: urlDrapeauBreton),
+      ], sounds: [
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton),
+        Sound(title: 'test', logoUrl: urlDrapeauBreton)
+      ], voicePacks: [
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton),
+        VoicePack(title: 'test', logoUrl: urlDrapeauBreton)
+      ], voices: [
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton),
+        Voice(title: 'test', logoUrl: urlDrapeauBreton)
+      ]));
     } on Exception {
       emit(const DashboardPageErrorState("Error"));
     }

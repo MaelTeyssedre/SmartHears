@@ -1,7 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:smarthears_app/models/item.dart';
+import 'package:smarthears_app/models/sound.dart';
+import 'package:smarthears_app/models/sound_pack.dart';
 import 'package:smarthears_app/models/theme.dart';
+import 'package:smarthears_app/models/voice.dart';
+import 'package:smarthears_app/modules/backdrop_item/backdrop_item.dart';
+import 'package:smarthears_app/modules/backdrop_item/bloc/backdrop_item_bloc.dart';
 
 class DashboardSection extends StatelessWidget {
   const DashboardSection({Key? key, required this.items, required this.title}) : super(key: key);
@@ -40,7 +47,22 @@ class DashboardSectionItemDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-      onTap: () {},
+      onTap: () => showMaterialModalBottomSheet(
+          context: context,
+          bounce: true,
+          barrierColor: Colors.black87,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          animationCurve: Curves.slowMiddle,
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0))),
+          builder: (context) => BackdropItem(
+              item: item,
+              itemType: item is Sound
+                  ? ItemType.sound
+                  : item is SoundPack
+                      ? ItemType.soundPack
+                      : item is Voice
+                          ? ItemType.voice
+                          : ItemType.voicePack)),
       child: Container(
           height: 120,
           width: 100,
@@ -69,6 +91,3 @@ class DashboardSectionItemDisplay extends StatelessWidget {
             ])
           ])));
 }
-
-// Text(item.title,
-//                           overflow: TextOverflow.ellipsis, textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyText2)
