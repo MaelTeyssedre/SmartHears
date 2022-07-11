@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:smarthears_app/models/theme.dart';
+import 'package:smarthears_app/modules/backdrop_item/bloc/backdrop_item_bloc.dart';
 import 'package:smarthears_app/modules/home/home_page.dart';
 import 'package:smarthears_app/modules/dashboard/bloc/dashboard_page_cubit.dart';
 import 'package:smarthears_app/modules/home/bloc/home_page_cubit.dart';
@@ -16,8 +17,13 @@ class SmartHears extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
-      providers: [BlocProvider(create: (_) => HomePageCubit()), BlocProvider(create: (_) => DashboardPageCubit())],
-      child: MultiRepositoryProvider(providers: [RepositoryProvider.value(value: getIt<AuthenticationRepository>())], child: const SmartHearsView()));
+          providers: [
+            BlocProvider(create: (_) => HomePageCubit()),
+            BlocProvider(create: (_) => DashboardPageCubit()),
+            BlocProvider(create: (_) => BackdropItemBloc())
+          ],
+          child: MultiRepositoryProvider(
+              providers: [RepositoryProvider.value(value: getIt<AuthenticationRepository>())], child: const SmartHearsView()));
 }
 
 class SmartHearsView extends StatefulWidget {

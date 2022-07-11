@@ -15,13 +15,13 @@ ShaderCallback shaderCallback = (bounds) =>
 
 const secondaryColor = Colors.white;
 const secondaryVariantColor = Color(0xFFc29017);
-const onsecondaryColor = Color(0xFF2a2a2a);
-const primaryColor = Color(0xFF2a2a2a);
+const onsecondaryColor = Colors.black;
+const primaryColor = Colors.white;
 const primaryVariantColor = Color(0xff6C6C6C);
 const onPrimaryColor = Color(0xffdedede);
 const backgroundColor = Color.fromRGBO(211, 211, 211, 1);
 const onBackgroundColor = Color(0xffdedede);
-const surfaceColor = Color(0xff242424);
+const surfaceColor = Colors.black;
 const onSurfacesColor = Color(0xffdedede);
 const textColor = Color(0xffdedede);
 const errorColor = Color(0xfff44336);
@@ -52,7 +52,7 @@ final ThemeData theme = ThemeData(
     primaryColor: Colors.white,
     backgroundColor: Colors.black,
     scaffoldBackgroundColor: const Color.fromRGBO(211, 211, 211, 1),
-    splashColor: const Color.fromRGBO(30, 30, 30, 1),
+    splashColor: Colors.black,
     shadowColor: const Color.fromRGBO(30, 30, 30, 1),
     fontFamily: 'Roboto',
     textTheme: TextTheme(
