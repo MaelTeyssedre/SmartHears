@@ -11,22 +11,63 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   int _page = 0;
+  int _currentPage = 0;
   final GlobalKey _bottomNavigationKey = GlobalKey();
 
   Widget getContent(int index) {
+    final AnimationController _controller = AnimationController(
+      duration: const Duration(milliseconds: 100),
+      vsync: this,
+    );
+    final Animation<Offset> _animationSlideLeft = Tween<Offset>(
+      begin: const Offset(-1, 0.0),
+      end: const Offset(0.0, 0.0),
+    ).animate(CurvedAnimation(
+      parent: _controller..forward(),
+      curve: Curves.ease,
+    ));
+
+    final Animation<Offset> _animationSlideRigth = Tween<Offset>(
+      begin: const Offset(1, 0.0),
+      end: const Offset(0, 0.0),
+    ).animate(CurvedAnimation(
+      parent: _controller..forward(),
+      curve: Curves.ease,
+    ));
+
     switch (index) {
       case 0:
-        return const DashboardScreen();
-      // case 1:
-      //   return AccountPage();
-      // case 2:
-      //   return SearchPage();
-      // case 3:
-      //   return SettingsPage();
+        return SlideTransition(
+            position: _currentPage > _page
+                ? _animationSlideRigth
+                : _animationSlideLeft,
+            child: Container(color: Colors.blue));
+      case 1:
+        return SlideTransition(
+            position: _currentPage > _page
+                ? _animationSlideRigth
+                : _animationSlideLeft,
+            child: Container(color: Colors.yellow));
+      case 2:
+        return SlideTransition(
+            position: _currentPage > _page
+                ? _animationSlideRigth
+                : _animationSlideLeft,
+            child: Container(color: Colors.green));
+      case 3:
+        return SlideTransition(
+            position: _currentPage > _page
+                ? _animationSlideRigth
+                : _animationSlideLeft,
+            child: Container(color: Colors.purple));
       default:
-        return const DashboardScreen();
+        return SlideTransition(
+            position: _currentPage > _page
+                ? _animationSlideRigth
+                : _animationSlideLeft,
+            child: Container(color: Colors.red));
     }
   }
 
@@ -49,7 +90,10 @@ class _HomePageState extends State<HomePage> {
               Icon(Icons.settings, size: 30, color: Color(0xFFD3AF5F))
             ],
             animationDuration: const Duration(milliseconds: 300),
-            onTap: (index) => setState(() => _page = index)),
+            onTap: (index) => setState(() {
+                  _currentPage = _page;
+                  _page = index;
+                })),
         body: Padding(
             padding: const EdgeInsets.only(bottom: 0),
             child: getContent(_page)));
