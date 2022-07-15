@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:smarthears_app/models/theme.dart';
+import 'package:smarthears_app/modules/chat_page/chat_page.dart';
 import 'package:smarthears_app/modules/dashboard/view/dashboard_screen.dart';
 import 'package:smarthears_app/modules/splash/splash.dart';
 import 'package:smarthears_app/modules/user/user_page.dart';
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
       case 2:
         return const SplashPage();
       case 3:
-        return const SplashPage();
+        return const ChatPage(id: 'fake id for testing');
       default:
         return const DashboardScreen();
     }
