@@ -19,20 +19,15 @@ class _HomePageState extends State<HomePage> {
   int _page = 0;
   final GlobalKey _bottomNavigationKey = GlobalKey();
 
-  Widget getContent(int index) {
-    switch (index) {
-      case 0:
-        return const DashboardScreen();
-      case 1:
-        return const UserPage(id: 'fake id for testing');
-      case 2:
-        return const SplashPage();
-      case 3:
-        return const ChatPage(id: 'fake id for testing');
-      default:
-        return const DashboardScreen();
-    }
-  }
+  Widget getContent(int index) => index == 0
+      ? const DashboardScreen()
+      : index == 1
+          ? const UserPage(id: 'fake id for testing')
+          : index == 2
+              ? const SplashPage()
+              : index == 3
+                  ? const ChatPage(id: 'fake id for testing')
+                  : const DashboardScreen();
 
   @override
   Widget build(BuildContext context) {
