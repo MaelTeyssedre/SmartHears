@@ -37,15 +37,39 @@ class _UserPageState extends State<UserPage> {
         ),
         Row(children: [
           Container(
-            height: 50,
             width: MediaQuery.of(context).size.width / 2,
-            child: ListTile(
-              title: const Text("FirstName: ",
-                  style: TextStyle(fontSize: 20.0, color: Colors.black)),
-              subtitle: Text(widget.user.firstname as String,
-                  style: TextStyle(fontSize: 20.0, color: Colors.black)),
+            padding: const EdgeInsets.all(1.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(width: 5),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
             ),
-          )
+            child: ListTile(
+              title: const Text("Firstname: ",
+                  style: TextStyle(fontSize: 20.0, color: Colors.black)),
+              subtitle: Center(
+                  child: Text(widget.user.firstname as String,
+                      style: const TextStyle(
+                          fontSize: 20.0, color: Colors.black))),
+            ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width / 2,
+            padding: const EdgeInsets.all(1.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(width: 5),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+            ),
+            child: ListTile(
+              title: const Text("Lastname: ",
+                  style: TextStyle(fontSize: 20.0, color: Colors.black)),
+              subtitle: Center(
+                  child: Text(widget.user.lastname as String,
+                      style: const TextStyle(
+                          fontSize: 20.0, color: Colors.black))),
+            ),
+          ),
         ])
       ]));
   @override
