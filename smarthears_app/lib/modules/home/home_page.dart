@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:smarthears_app/models/theme.dart';
+import 'package:smarthears_app/models/user.dart';
 import 'package:smarthears_app/modules/dashboard/view/dashboard_screen.dart';
 import 'package:smarthears_app/modules/splash/splash.dart';
 import 'package:smarthears_app/modules/user/user_page.dart';
@@ -23,7 +24,15 @@ class _HomePageState extends State<HomePage> {
       case 0:
         return const DashboardScreen();
       case 1:
-        return const UserPage(id: 'fake id for testing');
+        return UserPage(id: 'fake id for testing', user: User(avatarUrl: 'testurl', 
+                                                              birthDate: DateTime.now(), 
+                                                              city: 'la Street', 
+                                                              country: 'Texas', 
+                                                              firstname: 'fake', 
+                                                              lastname: 'user', 
+                                                              email: 'fake@example.com', 
+                                                              id: 'fakeid', 
+                                                              phone: 'fake phone'));
       case 2:
         return const SplashPage();
       case 3:

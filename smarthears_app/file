@@ -1,0 +1,179 @@
+@startuml
+set namespaceSeparator ::
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::app.dart::MyApp" {
+  +dynamic build()
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::app.dart::AppView" {
+  +dynamic createState()
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::app.dart::_AppViewState" {
+  +dynamic build()
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::firebase_options.dart::DefaultFirebaseOptions" {
+  {static} +dynamic web
+  {static} +dynamic android
+  {static} +dynamic ios
+  {static} +dynamic currentPlatform
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::models::entity.dart::Entity" {
+  +String id
+  +String name
+  +String logoUrl
+  +String header
+}
+
+abstract class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::models::item.dart::Item" {
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::models::item.dart::ItemType" {
+  +int index
+  {static} +List<ItemType> values
+  {static} +ItemType voice
+  {static} +ItemType soundPack
+  {static} +ItemType voicePack
+  {static} +ItemType sound
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::models::item.dart::ItemType" o-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::models::item.dart::ItemType"
+"dart::core::Enum" <|-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::models::item.dart::ItemType"
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::backdrop_item.dart::BackdropItem" {
+  +dynamic item
+  +_BackDropItemState createState()
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::backdrop_item.dart::_BackDropItemState" {
+  +dynamic item
+  +bool expand
+  +void toggleExpand()
+  +dynamic build()
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::backdrop_item_listener.dart::BackdropItemListener" {
+  +dynamic child
+  +dynamic build()
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::BackdropItemBloc" {
+}
+
+abstract class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::BackdropItemEvent" {
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::ShowBackdropEvent" {
+  +String objectId
+  +dynamic itemType
+  +String? dynamicLink
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::BackdropItemEvent" <|-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::ShowBackdropEvent"
+
+abstract class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::BackdropItemState" {
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::BackdropItemInitial" {
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::BackdropItemState" <|-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::BackdropItemInitial"
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::GoToSphere" {
+  +String sphereId
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::BackdropItemState" <|-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::GoToSphere"
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::ShowBackdropItemState" {
+  +dynamic item
+  +dynamic type
+  +String dynamicLink
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::BackdropItemState" <|-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::ShowBackdropItemState"
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::PayBackdropItemState" {
+  +dynamic item
+  +dynamic type
+  +String dynamicLink
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::BackdropItemState" <|-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::backdrop_item::bloc::backdrop_item_bloc.dart::PayBackdropItemState"
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageCubit" {
+}
+
+abstract class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageState" {
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageInitialState" {
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageState" <|-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageInitialState"
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageLoadingState" {
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageState" <|-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageLoadingState"
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageLoadedState" {
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageState" <|-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageLoadedState"
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageErrorState" {
+  +String message
+  +int hashCode
+  +bool ==()
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageState" <|-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::bloc::dashboard_page_cubit.dart::DashboardPageErrorState"
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::view::dashboard_screen.dart::DashboardScreen" {
+  {static} +String routeName
+  {static} +dynamic route()
+  +void getDashboard()
+  +dynamic build()
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::view::dashboard_widget.dart::DashboardWidget" {
+  +void Function(dynamic)? getData
+  +String? name
+  +_DashboardWidget<C, S> createState()
+}
+
+"file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::view::dashboard_widget.dart::DashboardWidget" o-- "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::view::dashboard_widget.dart::void Function(dynamic)"
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::dashboard::view::dashboard_widget.dart::_DashboardWidget" {
+  -dynamic _refreshController
+  +bool loaded
+  +dynamic initState()
+  +dynamic dispose()
+  -void _onRefresh()
+  +dynamic build()
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::home::bloc::home_page_cubit.dart::HomePageCubit" {
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::home::home_page.dart::HomePage" {
+  {static} +String route
+  +dynamic createState()
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::modules::home::home_page.dart::_HomePageState" {
+  -int _page
+  -dynamic _bottomNavigationKey
+  +dynamic getContent()
+  +dynamic build()
+}
+
+class "file:::::::C:::Users::ratha::SmartHears::smarthears_app::lib::repositories::authentication_repository.dart::AuthenticationRepository" {
+  +String apiURL
+}
+
+
+@enduml
