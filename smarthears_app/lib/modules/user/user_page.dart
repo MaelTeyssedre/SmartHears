@@ -41,12 +41,12 @@ class _UserPageState extends State<UserPage> {
             padding: const EdgeInsets.all(1.0),
             decoration: BoxDecoration(
               color: Colors.white,
-              border: Border.all(width: 5),
+              border: Border.all(width: 1),
               borderRadius: const BorderRadius.all(Radius.circular(10)),
             ),
             child: ListTile(
               title: const Text("Firstname: ",
-                  style: TextStyle(fontSize: 20.0, color: Colors.black)),
+                  style: TextStyle(fontSize: 15.0, color: Colors.black)),
               subtitle: Center(
                   child: Text(widget.user.firstname as String,
                       style: const TextStyle(
@@ -58,12 +58,12 @@ class _UserPageState extends State<UserPage> {
             padding: const EdgeInsets.all(1.0),
             decoration: BoxDecoration(
               color: Colors.white,
-              border: Border.all(width: 5),
+              border: Border.all(width: 1),
               borderRadius: const BorderRadius.all(Radius.circular(10)),
             ),
             child: ListTile(
               title: const Text("Lastname: ",
-                  style: TextStyle(fontSize: 20.0, color: Colors.black)),
+                  style: TextStyle(fontSize: 15.0, color: Colors.black)),
               subtitle: Center(
                   child: Text(widget.user.lastname as String,
                       style: const TextStyle(
