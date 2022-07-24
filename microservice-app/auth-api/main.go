@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"os"
 	"time"
-
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -14,12 +13,8 @@ import (
 )
 
 var (
-	// ErrHttpGenericMessage that is returned in general case, details should be logged in such case
 	ErrHttpGenericMessage = echo.NewHTTPError(http.StatusInternalServerError, "something went wrong, please try again later")
-
-	// ErrWrongCredentials indicates that login attempt failed because of incorrect login or password
 	ErrWrongCredentials = echo.NewHTTPError(http.StatusUnauthorized, "username or password is invalid")
-
 	jwtSecret = "myfancysecret"
 )
 
