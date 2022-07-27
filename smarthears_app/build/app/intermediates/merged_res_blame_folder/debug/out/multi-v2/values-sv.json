@@ -1,0 +1,94 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/rgabet/Documents/Epitech/EIP/SmartHears/smarthears_app/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-sv/values-sv.xml",
+            "map": [
+                {
+                    "source": "/home/rgabet/.gradle/caches/transforms-3/601d4158b382ad9f634d3bbb23a34c83/transformed/jetified-play-services-basement-18.0.0/res/values-sv/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "143",
+                        "endOffsets": "338"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1257",
+                        "endColumns": "147",
+                        "endOffsets": "1400"
+                    }
+                },
+                {
+                    "source": "/home/rgabet/.gradle/caches/transforms-3/e5e7315e6b6113637b4a688d0b9e0a8b/transformed/jetified-play-services-base-17.1.0/res/values-sv/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,350,539,664,772,972,1095,1244,1373,1580,1686,1879,2005,2218,2400,2492,2581",
+                        "endColumns": "104,188,124,107,199,122,148,128,206,105,192,125,212,181,91,88,103",
+                        "endOffsets": "349,538,663,771,971,1094,1243,1372,1579,1685,1878,2004,2217,2399,2491,2580,2684"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,214,403,532,644,844,971,1124,1405,1612,1722,1915,2045,2258,2444,2540,2633",
+                        "endColumns": "108,188,128,111,199,126,152,132,206,109,192,129,212,185,95,92,107",
+                        "endOffsets": "209,398,527,639,839,966,1119,1252,1607,1717,1910,2040,2253,2439,2535,2628,2736"
+                    }
+                },
+                {
+                    "source": "/home/rgabet/.gradle/caches/transforms-3/05304738454a7c6fee076a188df4c25d/transformed/browser-1.4.0/res/values-sv/values-sv.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,155,255,368",
+                        "endColumns": "99,99,112,97",
+                        "endOffsets": "150,250,363,461"
+                    },
+                    "to": {
+                        "startLines": "20,30,31,32",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "2741,3524,3624,3737",
+                        "endColumns": "99,99,112,97",
+                        "endOffsets": "2836,3619,3732,3830"
+                    }
+                },
+                {
+                    "source": "/home/rgabet/.gradle/caches/transforms-3/5e083c06c9925c2309f02468fc66e376/transformed/core-1.7.0/res/values-sv/values-sv.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "33",
+                        "startColumns": "4",
+                        "startOffsets": "3835",
+                        "endColumns": "100",
+                        "endOffsets": "3931"
+                    }
+                },
+                {
+                    "source": "/home/rgabet/.gradle/caches/transforms-3/9c3e1c556f4536cd794cd7354f8dc080/transformed/jetified-exoplayer-core-2.17.1/res/values-sv/values-sv.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,128,191,255,330,411,485,579,665",
+                        "endColumns": "72,62,63,74,80,73,93,85,72",
+                        "endOffsets": "123,186,250,325,406,480,574,660,733"
+                    },
+                    "to": {
+                        "startLines": "21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2841,2914,2977,3041,3116,3197,3271,3365,3451",
+                        "endColumns": "72,62,63,74,80,73,93,85,72",
+                        "endOffsets": "2909,2972,3036,3111,3192,3266,3360,3446,3519"
+                    }
+                }
+            ]
+        }
+    ]
+}

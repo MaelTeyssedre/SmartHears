@@ -1,0 +1,94 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/rgabet/Documents/Epitech/EIP/SmartHears/smarthears_app/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
+            "map": [
+                {
+                    "source": "/home/rgabet/.gradle/caches/transforms-3/e5e7315e6b6113637b4a688d0b9e0a8b/transformed/jetified-play-services-base-17.1.0/res/values-vi/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,345,539,662,767,991,1119,1272,1401,1641,1746,1938,2066,2284,2459,2553,2643",
+                        "endColumns": "99,193,122,104,223,127,152,128,239,104,191,127,217,174,93,89,105",
+                        "endOffsets": "344,538,661,766,990,1118,1271,1400,1640,1745,1937,2065,2283,2458,2552,2642,2748"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,209,403,530,639,863,995,1152,1413,1653,1762,1954,2086,2304,2483,2581,2675",
+                        "endColumns": "103,193,126,108,223,131,156,132,239,108,191,131,217,178,97,93,109",
+                        "endOffsets": "204,398,525,634,858,990,1147,1280,1648,1757,1949,2081,2299,2478,2576,2670,2780"
+                    }
+                },
+                {
+                    "source": "/home/rgabet/.gradle/caches/transforms-3/05304738454a7c6fee076a188df4c25d/transformed/browser-1.4.0/res/values-vi/values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,172,283,397",
+                        "endColumns": "116,110,113,104",
+                        "endOffsets": "167,278,392,497"
+                    },
+                    "to": {
+                        "startLines": "20,30,31,32",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "2785,3594,3705,3819",
+                        "endColumns": "116,110,113,104",
+                        "endOffsets": "2897,3700,3814,3919"
+                    }
+                },
+                {
+                    "source": "/home/rgabet/.gradle/caches/transforms-3/5e083c06c9925c2309f02468fc66e376/transformed/core-1.7.0/res/values-vi/values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "33",
+                        "startColumns": "4",
+                        "startOffsets": "3924",
+                        "endColumns": "100",
+                        "endOffsets": "4020"
+                    }
+                },
+                {
+                    "source": "/home/rgabet/.gradle/caches/transforms-3/601d4158b382ad9f634d3bbb23a34c83/transformed/jetified-play-services-basement-18.0.0/res/values-vi/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "123",
+                        "endOffsets": "318"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1285",
+                        "endColumns": "127",
+                        "endOffsets": "1408"
+                    }
+                },
+                {
+                    "source": "/home/rgabet/.gradle/caches/transforms-3/9c3e1c556f4536cd794cd7354f8dc080/transformed/jetified-exoplayer-core-2.17.1/res/values-vi/values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,128,191,259,328,419,489,579,667",
+                        "endColumns": "72,62,67,68,90,69,89,87,79",
+                        "endOffsets": "123,186,254,323,414,484,574,662,742"
+                    },
+                    "to": {
+                        "startLines": "21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2902,2975,3038,3106,3175,3266,3336,3426,3514",
+                        "endColumns": "72,62,67,68,90,69,89,87,79",
+                        "endOffsets": "2970,3033,3101,3170,3261,3331,3421,3509,3589"
+                    }
+                }
+            ]
+        }
+    ]
+}

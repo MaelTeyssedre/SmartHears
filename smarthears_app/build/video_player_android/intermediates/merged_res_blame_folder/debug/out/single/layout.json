@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/rgabet/Documents/Epitech/EIP/SmartHears/smarthears_app/build/video_player_android/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/home/rgabet/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/home/rgabet/Documents/Epitech/EIP/SmartHears/smarthears_app/build/video_player_android/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "source": "/home/rgabet/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/rgabet/Documents/Epitech/EIP/SmartHears/smarthears_app/build/video_player_android/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/home/rgabet/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/rgabet/Documents/Epitech/EIP/SmartHears/smarthears_app/build/video_player_android/intermediates/res/merged/debug/layout/custom_dialog.xml",
+        "source": "/home/rgabet/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/custom_dialog.xml"
+    },
+    {
+        "merged": "/home/rgabet/Documents/Epitech/EIP/SmartHears/smarthears_app/build/video_player_android/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/home/rgabet/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/home/rgabet/Documents/Epitech/EIP/SmartHears/smarthears_app/build/video_player_android/intermediates/res/merged/debug/layout/notification_action.xml",
+        "source": "/home/rgabet/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/notification_action.xml"
+    }
+]
