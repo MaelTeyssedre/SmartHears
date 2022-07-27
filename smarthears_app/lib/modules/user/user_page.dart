@@ -39,35 +39,39 @@ class _UserPageState extends State<UserPage> {
           Container(
             width: MediaQuery.of(context).size.width / 2,
             padding: const EdgeInsets.all(1.0),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 1),
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-            ),
-            child: ListTile(
-              title: const Text("Firstname: ",
-                  style: TextStyle(fontSize: 15.0, color: Colors.black)),
-              subtitle: Center(
-                  child: Text(widget.user.firstname as String,
-                      style: const TextStyle(
-                          fontSize: 20.0, color: Colors.black))),
+            child: TextFormField(
+              style: const TextStyle(color: Colors.black),
+              decoration: const InputDecoration(
+                icon: Icon(Icons.person),
+                labelText: 'FirstName *',
+                iconColor: Colors.black,
+                labelStyle: TextStyle(color: Colors.black),
+              ),
+              initialValue: widget.user.firstname,
+              onSaved: (String? value) {
+              },
+              validator: (String? value) {
+                return (value != null && value.contains('@')) ? 'Do not use the @ char.' : null;
+              },
             ),
           ),
           Container(
             width: MediaQuery.of(context).size.width / 2,
             padding: const EdgeInsets.all(1.0),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 1),
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-            ),
-            child: ListTile(
-              title: const Text("Lastname: ",
-                  style: TextStyle(fontSize: 15.0, color: Colors.black)),
-              subtitle: Center(
-                  child: Text(widget.user.lastname as String,
-                      style: const TextStyle(
-                          fontSize: 20.0, color: Colors.black))),
+            child:  TextFormField(
+              style: const TextStyle(color: Colors.black),
+              decoration: const InputDecoration(
+                icon: Icon(Icons.person),
+                labelText: 'LastName *',
+                iconColor: Colors.black,
+                labelStyle: TextStyle(color: Colors.black),
+              ),
+              initialValue: widget.user.lastname,
+              onSaved: (String? value) {
+              },
+              validator: (String? value) {
+                return (value != null && value.contains('@')) ? 'Do not use the @ char.' : null;
+              },
             ),
           ),
         ])
