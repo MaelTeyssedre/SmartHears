@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthears_app/models/theme.dart';
 import 'package:smarthears_app/models/user.dart';
@@ -32,46 +33,164 @@ class _UserPageState extends State<UserPage> {
   Widget _buildLoaded(UserPageLoadedState state) => Container(
       color: theme.colorScheme.background,
       child: Column(children: <Widget>[
-        const SizedBox(
-          height: 210,
-        ),
         Row(children: [
-          Container(
-            width: MediaQuery.of(context).size.width / 2,
-            padding: const EdgeInsets.all(1.0),
-            child: TextFormField(
-              style: const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
-                icon: Icon(Icons.person),
-                labelText: 'FirstName *',
-                iconColor: Colors.black,
-                labelStyle: TextStyle(color: Colors.black),
-              ),
-              initialValue: widget.user.firstname,
-              onSaved: (String? value) {
-              },
-              validator: (String? value) {
-                return (value != null && value.contains('@')) ? 'Do not use the @ char.' : null;
-              },
+          Expanded(
+            child: ListView(
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(20.0),
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.person, color: Colors.black),
+                      labelText: 'FirstName *',
+                      labelStyle: TextStyle(color: Colors.black),
+                    ),
+                    initialValue: widget.user.firstname,
+                    onSaved: (String? value) {},
+                    validator: (String? value) {},
+                  ),
+                ),
+                const SizedBox(
+                  height: 7,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.calendar_today, color: Colors.black),
+                      labelText: 'BirthDate *',
+                      labelStyle: TextStyle(color: Colors.black),
+                    ),
+                    readOnly: true,
+                    onTap: () async {
+                      DateTime? pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2000),
+                          lastDate: DateTime(2101));
+                      if (pickedDate != null) {
+                        String formattedDate =
+                            DateFormat('yyyy-MM-dd').format(pickedDate);
+                      }
+                    },
+                    initialValue: DateFormat('yyyy-MM-dd – kk:mm')
+                        .format(widget.user.birthDate as DateTime),
+                    onSaved: (String? value) {},
+                    validator: (String? value) {},
+                  ),
+                ),
+                const SizedBox(
+                  height: 7,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.emoji_flags, color: Colors.black),
+                      labelText: 'Country *',
+                      labelStyle: TextStyle(color: Colors.black),
+                    ),
+                    initialValue: widget.user.country,
+                    onSaved: (String? value) {},
+                    validator: (String? value) {},
+                  ),
+                ),
+                const SizedBox(
+                  height: 7,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.accessible_forward, color: Colors.black),
+                      labelText: 'ID *',
+                      labelStyle: TextStyle(color: Colors.black),
+                    ),
+                    initialValue: widget.user.id,
+                    onSaved: (String? value) {},
+                    validator: (String? value) {},
+                  ),
+                ),
+              ],
             ),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width / 2,
-            padding: const EdgeInsets.all(1.0),
-            child:  TextFormField(
-              style: const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
-                icon: Icon(Icons.person),
-                labelText: 'LastName *',
-                iconColor: Colors.black,
-                labelStyle: TextStyle(color: Colors.black),
-              ),
-              initialValue: widget.user.lastname,
-              onSaved: (String? value) {
-              },
-              validator: (String? value) {
-                return (value != null && value.contains('@')) ? 'Do not use the @ char.' : null;
-              },
+          Expanded(
+            child: ListView(
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(20.0),
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.person, color: Colors.black),
+                      labelText: 'LastName *',
+                      labelStyle: TextStyle(color: Colors.black),
+                    ),
+                    initialValue: widget.user.lastname,
+                    onSaved: (String? value) {},
+                    validator: (String? value) {},
+                  ),
+                ),
+                const SizedBox(
+                  height: 7,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.add_location, color: Colors.black),
+                      labelText: 'City *',
+                      labelStyle: TextStyle(color: Colors.black),
+                    ),
+                    initialValue: widget.user.city,
+                    onSaved: (String? value) {},
+                    validator: (String? value) {},
+                  ),
+                ),
+                const SizedBox(
+                  height: 7,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.local_phone, color: Colors.black),
+                      labelText: 'Phone *',
+                      labelStyle: TextStyle(color: Colors.black),
+                    ),
+                    initialValue: widget.user.phone,
+                    onSaved: (String? value) {},
+                    validator: (String? value) {},
+                  ),
+                ),
+                const SizedBox(
+                  height: 7,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.mail, color: Colors.black),
+                      labelText: 'E-Mail *',
+                      labelStyle: TextStyle(color: Colors.black),
+                    ),
+                    initialValue: widget.user.email,
+                    onSaved: (String? value) {},
+                    validator: (String? value) {},
+                  ),
+                ),
+              ],
             ),
           ),
         ])

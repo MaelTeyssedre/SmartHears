@@ -12,6 +12,7 @@ dependencies:
   firebase_auth: ^3.3.19
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
+  intl: ^0.17.0
   get: ^4.6.5
   cached_network_image: ^3.2.0
   google_fonts: ^3.0.1
